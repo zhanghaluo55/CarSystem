@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+<constant name="struts.configuration.xnl.reload" value="true"></constant>
+<constant name="struts.devMode" value="true"></constant>
+<constant name="struts.enable.DynamicMethodInvocation" value="true" /> 
+<package name="struts2" extends="struts-default">
+	 <global-allowed-methods>regex:.*</global-allowed-methods> 
+	<action name="loginAction" class="com.zsg.Action.loginAction">
+		<result name="userlogin">/index.jsp</result>
+		<result name="error">/user_login.jsp</result>
+	</action>
+	<action name="carAction" class="com.zsg.Action.CarAction">
+		<result name="pagelist">/car_list.jsp</result>
+		<result name="error">/user_login.jsp</result>
+		<result name="carIntro">/proIntro.jsp</result>
+		<result name="search">/car_list.jsp</result>
+		<result name="buy">/paycheck.jsp</result>
+		<result name="cartbuy">/paycheck.jsp</result>
+		<result name="buyAny">/paycheck.jsp</result>	
+		<result name="buyYes">/paySuccess.jsp</result>
+		<result name="selectbyBrand">/car_list.jsp</result>
+		<result name="selectbyPrice">/car_list.jsp</result>
+		<result name="orderbysb">/car_list.jsp</result>
+		<result name="selectbyCartype">/car_list.jsp</result>
+	</action>
+	<action name="goodsAction" class="com.zsg.Action.GoodsAction">
+		<result name="addGoods">/cart.jsp</result>
+		<result name="delGoods">/cart.jsp</result>
+		<result name="removeCart">/cart.jsp</result>
+	</action>
+		<action name="userAction" class="com.zsg.Action.UserAction">
+		<result name="registered">/forward.jsp</result>
+		<result name="error">/registered.jsp</result>
+		<result name="preUpdate">user_intro.jsp</result>
+		<result name="update">user_intro.jsp</result>
+		<result name="exit">index.jsp</result>
+	</action>
+	<action name="orderAction" class="com.zsg.Action.OrderAction">
+		<result name="pagelist">/user_order.jsp</result>
+		<result name="orderpay">/paycheck.jsp</result>
+		<result name="orderReRep">/replea.jsp</result>
+		<result name="orderRep">/user_order.jsp</result>
+	</action>
+	
+	<action name="managerLoginAction" class="com.zsg.Action.loginAction_mag" method="managerLogin">
+    	<result name="success">/manager/index.jsp</result>
+    	<result name="error">/manager/login.jsp</result>
+   </action>
+   
+   
+   <action name="userOperation" class="com.zsg.Action.userAction_mag" method="searchUser">
+       	<result name="success">/manager/role_list.jsp</result>
+   </action>
+   <action name="deleteUserAction" class="com.zsg.Action.userAction_mag" method="deleteUser">
+       	<result name="success">/manager/role_list.jsp</result>
+       	<result name="error">/manager/index.jsp</result>
+   </action>
+   <action name="updateUserAction" class="com.zsg.Action.userAction_mag">
+       	<result name="update">/manager/role_modi.jsp</result>
+   </action>
+   <action name="alterPassword" class="com.zsg.Action.userAction_mag" method="alterPassword">
+		<result name="success">/manager/index.jsp</result>
+   </action>	
+   <action name="DoupdateUser" class="com.zsg.Action.userAction_mag" method="updateUser">
+		<result name="success">/manager/index.jsp</result>
+   </action>
+   <action name="addUserAction" class="com.zsg.Action.userAction_mag" method="registered">
+		<result name="error">/manager/role_add.jsp</result>
+		<result name="success">/manager/index.jsp</result>
+   </action>
+   
+   
+   <action name="carOperation" class="com.zsg.Action.carAction_mag" method="searchCar">
+    	<result name="success">/manager/car_list.jsp</result>
+   </action>
+   <action name="carDetail" class="com.zsg.Action.carAction_mag">
+    	<result name="update">/manager/car_detail.jsp</result>
+   </action>
+   <action name="DoupdateCar" class="com.zsg.Action.carAction_mag" method="updateCar">
+    	<result name="success">/manager/index.jsp</result>
+    	<result name="error">/manager/car_list.jsp</result>
+   </action>
+   <action name="addCarAction" class="com.zsg.Action.carAction_mag" method="addCar">
+       	<result name="error">/manager/car_add.jsp</result>
+       	<result name="success">/manager/test.jsp</result>
+   </action>
+   <action name="addCarPicture" class="com.zsg.Action.carAction_mag" method="addPicture">
+		<result name="success">/manager/test.jsp</result>
+   </action>
+		
+   <action name="deleteCarAction" class="com.zsg.Action.carAction_mag" method="deleteCar">
+       	<result name="success">/manager/car_list.jsp</result>
+       	<result name="error">/manager/index.jsp</result>
+   </action>
+   <action name="upload" class="com.zsg.Action.carAction_mag" method="execute2">
+          <!--<interceptor-ref name="basicStack"/>-->
+          <interceptor-ref name="defaultStack"/>
+           <interceptor-ref name="fileUpload">
+               <param name="allowedTypes">image/jpeg,image/jpg,image/gif</param>
+          </interceptor-ref>
+       	<result name="success">/manager/car_list.jsp</result>
+       	<result name="error">/manager/index.jsp</result>
+    </action>
+    
+    
+    <action name="orderOperation" class="com.zsg.Action.orderAction_mag" method="searchOrder">
+    	<result name="success">/manager/bill_list.jsp</result>
+    </action>
+    <action name="addOrderAction" class="com.zsg.Action.orderAction_mag" method="addOrder">
+    	<result name="error">/manager/index.jsp</result>
+		<result name="success">/manager/bill_list.jsp</result>
+	</action>	
+	<action name="deleteOrderAction" class="com.zsg.Action.orderAction_mag" method="deleteOrder">
+    	<result name="error">/manager/index.jsp</result>
+		<result name="success">/manager/bill_list.jsp</result>
+	</action>
+	<action name="orderDetail" class="com.zsg.Action.carAction_mag">
+    	<result name="update">/manager/order_modi.jsp</result>
+   </action>
+   <action name="DoupdateCar" class="com.zsg.Action.carAction_mag" method="updateCar">
+    	<result name="success">/manager/index.jsp</result>
+    	<result name="error">/manager/order_list.jsp</result>
+   </action>
+	
+	
+		
+	<action name="alterOrder" class="com.zsg.Action.orderAction_mag" method="updateOrder">
+		<result name="success">/manager/bill_list.jsp</result>
+	</action>	
+	
+	
+	<action name="exitAction" class="com.zsg.Action.loginAction_mag" method="exit">
+		<result name="success">/manager/login.jsp</result>
+	</action>
+
+</package>
+</struts>

@@ -1,0 +1,11 @@
+/******************************************关于我们样式****************************************/
+.about_style{ }
+.about_style .about_title{ height:50px; border-bottom:1px solid #dddddd; background-color:#1C7CCE; color:#ffffff; font-weight:bold; padding:0px 20px; line-height:50px; font-size:18px}
+.about_style .left_about{ width:180px; margin-bottom:20px; float:left; border-left:1px solid #dddddd; border-right:1px solid #dddddd;border-bottom:1px solid #dddddd; height:1200px;}
+.about_style .right_about{ width:1020px; margin-bottom:20px;float:left; border-bottom:1px solid #dddddd; border-right:1px solid #dddddd; height:1200px;}
+.about_style .left_about .about_column{ min-height:550px; }
+.about_style .left_about .about_column dl dt{ height:50px; background-color:#f0f0f0; line-height:50px; border-bottom:1px solid #dddddd; font-size:16px; padding:0px 20px;}
+.about_style .left_about .about_column dl dd{ height:50px; line-height:50px; border-bottom:1px solid #dddddd; font-size:14px; position:relative;}
+.about_style .left_about .about_column dl dd.on a{ color:#F60; font-weight:bold}
+.about_style .left_about .about_column dl dd .icon_jiantou{ background:url(../images/icon_jiantou.png) no-repeat; top:18px; left:15px; position:absolute; width:14px; height:14px;}
+.about_style .left_about .about_column dl dd a{ display:block; padding-left:40px; font-size:14px}
